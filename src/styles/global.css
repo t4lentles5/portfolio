@@ -2,5 +2,33 @@
 @plugin "@iconify/tailwind4";
 
 @theme {
-  --color-secondary: #515151;
+  --color-secondary: var(--text-secondary);
+  --color-border: var(--border);
+}
+
+@layer base {
+  :root {
+    --background: #f3e8ff;
+    --text-primary: #000;
+    --text-secondary: #515151;
+
+    --border: #a855f733;
+  }
+
+  .dark {
+    --background: #0e0312;
+    --text-primary: #fff;
+    --text-secondary: #99a1af;
+
+    --border: #a855f71a;
+  }
+}
+
+@layer utilities {
+  html,
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    @apply m-0 w-full h-full scroll-smooth  selection:bg-purple-500/20 selection:text-purple-500;
+  }
 }
