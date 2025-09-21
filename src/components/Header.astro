@@ -1,10 +1,11 @@
 ---
-
+import { ToggleTheme } from '@components/ToggleTheme';
+import { MobileMenu } from '@components/MobileMenu';
 ---
 
 <header class='flex items-center sticky z-50 justify-center'>
   <div
-    class='lg:max-w-4xl max-w-9/10 fixed bg-white/30 top-3 px-5 py-1 flex items-center container justify-between g-purple-800 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-purple-200'
+    class='lg:max-w-4xl max-w-9/10 fixed bg-white/30 top-3 px-5 py-1 flex items-center container justify-between g-purple-800 rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-border'
   >
     <a href='/'>👨‍💻 Omar Obregon</a>
 
@@ -13,21 +14,10 @@
       <a href='#projects'>🚀 Projects</a>
     </nav>
 
-    <div class='flex items-center justify-center gap-4'>
-      <span
-        class='icon-[line-md--sunny-filled-loop-to-moon-filled-alt-loop-transition] size-6'
-        role='img'
-        aria-hidden='true'></span>
+    <div class='flex items-center relative justify-center gap-3'>
+      <ToggleTheme client:load />
 
-      <span
-        class='icon-[line-md--sun-rising-filled-loop] size-6'
-        role='img'
-        aria-hidden='true'></span>
-
-      <span
-        class='icon-[stash--burger-classic] flex md:hidden size-6'
-        role='img'
-        aria-hidden='true'></span>
+      <MobileMenu client:load />
     </div>
   </div>
 </header>
