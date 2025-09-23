@@ -1,5 +1,72 @@
 ---
-
+import { skills } from '@lib/data';
 ---
 
-<section class='h-screen' id='skills'></section>
+<section
+  class='flex flex-col items-center justify-center md:h-screen md:pt-0 pt-20 w-full'
+  id='skills'
+>
+  <div class='px-5 max-w-4xl flex flex-col w-full gap-5'>
+    <h2 class='font-semibold text-left w-full text-4xl'>Skills</h2>
+
+    <div class='skill-container'>
+      <h3 class='font-semibold text-xl'>Programming Languages</h3>
+
+      <div class='flex gap-3 flex-wrap'>
+        {
+          skills.programmingLanguages.map((skill) => (
+            <span class='skill'>
+              <span class={skill.icon} role='img' aria-hidden='true' />{' '}
+              <span>{skill.name}</span>
+            </span>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class='skill-container'>
+      <h3 class='font-semibold text-xl'>Frontend Development</h3>
+
+      <div class='flex gap-3 flex-wrap'>
+        {
+          skills.frontendDevelopment.map((skill) => (
+            <span class='skill'>
+              <span class={skill.icon} role='img' aria-hidden='true' />{' '}
+              <span>{skill.name}</span>
+            </span>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class='skill-container'>
+      <h3 class='font-semibold text-xl'>Backend Development</h3>
+
+      <div class='flex gap-3 flex-wrap'>
+        {
+          skills.backendDevelopment.map((skill) => (
+            <span class='skill'>
+              <span class={skill.icon} role='img' aria-hidden='true' />{' '}
+              <span>{skill.name}</span>
+            </span>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class='skill-container'>
+      <h3 class='font-semibold text-xl'>Databases</h3>
+
+      <div class='flex gap-3 flex-wrap'>
+        {
+          skills.databases.map((skill) => (
+            <span class='skill'>
+              <span class={skill.icon} role='img' aria-hidden='true' />{' '}
+              <span>{skill.name}</span>
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

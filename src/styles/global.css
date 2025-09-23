@@ -20,7 +20,7 @@
     --text-primary: #fff;
     --text-secondary: #99a1af;
 
-    --border: #a855f71a;
+    --border: #f1f1f11a;
   }
 }
 
@@ -29,6 +29,14 @@
   body {
     background-color: var(--background);
     color: var(--text-primary);
-    @apply m-0 w-full h-full scroll-smooth  selection:bg-purple-500/20 selection:text-purple-500;
+    @apply m-0 w-full h-full scroll-smooth selection:bg-purple-500/20 selection:text-purple-500;
+  }
+
+  .skill-container {
+    @apply border border-border p-4 rounded-lg flex flex-col w-full  gap-5;
+  }
+
+  .skill {
+    @apply border border-border px-2 py-1 rounded-lg flex gap-2 items-center justify-center;
   }
 }
