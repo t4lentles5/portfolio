@@ -22,7 +22,7 @@ export const MobileMenu = () => {
       </button>
 
       {isOpen && (
-        <div className='w-[300px] items-center flex flex-col bg-white/30  rounded-lg absolute bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-border -right-5 top-[30px] *:p-2'>
+        <div className='w-[300px] items-center flex flex-col bg-white/30  rounded-lg absolute bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-border -right-5 top-[30px] *:p-2 *:w-full *:text-center'>
           <a href='#skills' onClick={() => setIsOpen(false)}>
             🛠️ Skills
           </a>

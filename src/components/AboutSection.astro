@@ -2,7 +2,7 @@
 import { contactInfo } from '@lib/data';
 ---
 
-<main class='grid md:place-items-center md:mt-0 mt-14 md:h-screen w-full'>
+<main class='grid md:place-items-center md:mt-0 mt-20 md:h-screen w-full'>
   <div class='max-w-4xl px-5 flex flex-col w-full items-center gap-5'>
     <div
       class='flex gap-3 flex-col-reverse md:flex-row w-full justify-between items-center'
@@ -15,7 +15,7 @@ import { contactInfo } from '@lib/data';
           {
             contactInfo.map((contact) => (
               <a
-                class='text-secondary flex items-center gap-2 text-sm'
+                class='text-secondary flex items-center gap-3 text-sm'
                 href={contact.url}
                 rel='noopener noreferrer'
                 target='_blank'
