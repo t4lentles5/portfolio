@@ -1,5 +1,79 @@
 ---
-
+import { projects } from '@lib/data';
 ---
 
-<section class='h-screen' id='projects'></section>
+<section class='min-h-screen w-full py-20' id='projects'>
+  <div class='flex flex-col gap-10'>
+    <div class='flex flex-col gap-2'>
+      <h2 class='text-3xl font-bold'>Projects</h2>
+      <p class='text-secondary'>
+        Here are some of the projects I've worked on.
+      </p>
+    </div>
+
+    <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+      {
+        projects.map((project) => (
+          <div class='group relative flex flex-col gap-4 p-4 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors duration-300'>
+            <div class='aspect-video w-full overflow-hidden rounded-lg'>
+              <img
+                src={project.image}
+                alt={project.title}
+                transition:name={`project-image-${project.slug}`}
+                class='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
+              />
+            </div>
+
+            <div class='flex flex-col gap-2'>
+              <h3 class='text-xl font-semibold group-hover:text-primary transition-colors'>
+                {project.title}
+              </h3>
+              <p class='text-sm text-secondary line-clamp-2'>
+                {project.description}
+              </p>
+            </div>
+
+            <div class='flex flex-wrap gap-2 mt-auto pt-2'>
+              {project.technologies.map((tech) => (
+                <span class='text-xs px-2 py-1 rounded-md bg-secondary/10 text-secondary flex items-center gap-1'>
+                  <span class={tech.icon} />
+                  {tech.name}
+                </span>
+              ))}
+            </div>
+
+            <div class='flex gap-4 mt-4 items-center justify-between'>
+              <div class='flex gap-4'>
+                <a
+                  href={project.githubUrl}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  class='text-sm text-secondary hover:text-primary flex items-center gap-2 transition-colors'
+                >
+                  <span class='icon-[mdi--github] text-lg' />
+                  Code
+                </a>
+                <a
+                  href={project.liveUrl}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  class='text-sm text-secondary hover:text-primary flex items-center gap-2 transition-colors'
+                >
+                  <span class='icon-[mdi--web] text-lg' />
+                  Demo
+                </a>
+              </div>
+              <a
+                href={`/projects/${project.slug}`}
+                class='text-sm font-medium text-primary hover:underline flex items-center gap-1'
+              >
+                More Info
+                <span class='icon-[mdi--arrow-right]' />
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

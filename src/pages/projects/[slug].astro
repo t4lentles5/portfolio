@@ -1,0 +1,85 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import { projects } from '@lib/data';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} | Portfolio`}>
+  <Header />
+  <main class='pt-32 pb-20 px-5 min-h-screen'>
+    <div class='max-w-6xl mx-auto flex flex-col gap-10'>
+      <a
+        href='/#projects'
+        class='text-secondary hover:text-primary flex items-center gap-2 transition-colors w-fit'
+      >
+        <span class='icon-[mdi--arrow-left] text-xl'></span>
+        Back to Projects
+      </a>
+
+      <div class='flex flex-col gap-6'>
+        <h1 class='text-4xl md:text-5xl font-bold'>{project.title}</h1>
+
+        <div
+          class='w-full aspect-video rounded-xl overflow-hidden border border-border bg-card/50'
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            transition:name={`project-image-${project.slug}`}
+            class='w-full h-full object-cover'
+          />
+        </div>
+
+        <div class='flex flex-wrap gap-3'>
+          {
+            project.technologies.map((tech) => (
+              <span class='px-3 py-1.5 rounded-full bg-secondary/10 text-secondary flex items-center gap-2 text-sm'>
+                <span class={tech.icon} />
+                {tech.name}
+              </span>
+            ))
+          }
+        </div>
+
+        <div class='flex gap-6'>
+          <a
+            href={project.githubUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            class='px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity flex items-center gap-2'
+          >
+            <span class='icon-[mdi--github] text-xl'></span>
+            View Code
+          </a>
+          <a
+            href={project.liveUrl}
+            target='_blank'
+            rel='noopener noreferrer'
+            class='px-6 py-2.5 rounded-lg border border-border hover:bg-secondary/10 transition-colors flex items-center gap-2'
+          >
+            <span class='icon-[mdi--web] text-xl'></span>
+            Live Demo
+          </a>
+        </div>
+
+        <div class='prose prose-invert max-w-none'>
+          <h2 class='text-2xl font-semibold mb-4'>About the Project</h2>
+          <p class='text-secondary leading-relaxed text-lg'>
+            {project.longDescription || project.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

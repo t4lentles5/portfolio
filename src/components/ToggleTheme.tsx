@@ -13,29 +13,31 @@ export const ToggleTheme = () => {
     const newTheme = isDark ? 'light' : 'dark';
 
     document.documentElement.classList.toggle('dark');
+    
+    localStorage.setItem('theme', newTheme);
+    
     setTheme(newTheme);
   };
 
   return (
-    <>
-      <button
-        onClick={toggleTheme}
-        className='grid place-items-center cursor-pointer'
-      >
-        {theme === 'dark' ? (
-          <span
-            className='icon-[line-md--sun-rising-filled-loop] size-6'
-            role='img'
-            aria-hidden='true'
-          ></span>
-        ) : (
-          <span
-            className='icon-[line-md--sunny-filled-loop-to-moon-filled-alt-loop-transition] size-6'
-            role='img'
-            aria-hidden='true'
-          ></span>
-        )}
-      </button>
-    </>
+    <button
+      onClick={toggleTheme}
+      className='grid place-items-center cursor-pointer'
+      aria-label="Toggle theme"
+    >
+      {theme === 'dark' ? (
+        <span
+          className='icon-[line-md--sun-rising-filled-loop] size-6'
+          role='img'
+          aria-hidden='true'
+        ></span>
+      ) : (
+        <span
+          className='icon-[line-md--sunny-filled-loop-to-moon-filled-alt-loop-transition] size-6'
+          role='img'
+          aria-hidden='true'
+        ></span>
+      )}
+    </button>
   );
 };
