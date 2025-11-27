@@ -14,7 +14,7 @@ import { projects } from '@lib/data';
     <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
       {
         projects.map((project) => (
-          <div class='group relative flex flex-col gap-4 p-4 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors duration-300'>
+          <div class='group relative flex flex-col gap-4 p-4 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors ease-in-out duration-300'>
             <div class='aspect-video w-full overflow-hidden rounded-lg'>
               <img
                 src={project.image}
@@ -25,7 +25,7 @@ import { projects } from '@lib/data';
             </div>
 
             <div class='flex flex-col gap-2'>
-              <h3 class='text-xl font-semibold group-hover:text-primary transition-colors'>
+              <h3 class='text-xl font-semibold group-hover:text-primary transition-colors duration-300 ease-in-out'>
                 {project.title}
               </h3>
               <p class='text-sm text-secondary line-clamp-2'>
@@ -48,7 +48,7 @@ import { projects } from '@lib/data';
                   href={project.githubUrl}
                   target='_blank'
                   rel='noopener noreferrer'
-                  class='text-sm text-secondary hover:text-primary flex items-center gap-2 transition-colors'
+                  class='text-sm text-secondary hover:text-primary flex items-center gap-2 transition-colors duration-300 ease-in-out'
                 >
                   <span class='icon-[mdi--github] text-lg' />
                   Code
@@ -57,7 +57,7 @@ import { projects } from '@lib/data';
                   href={project.liveUrl}
                   target='_blank'
                   rel='noopener noreferrer'
-                  class='text-sm text-secondary hover:text-primary flex items-center gap-2 transition-colors'
+                  class='text-sm text-secondary hover:text-primary flex items-center gap-2 transition-colors duration-300 ease-in-out'
                 >
                   <span class='icon-[mdi--web] text-lg' />
                   Demo
@@ -65,7 +65,7 @@ import { projects } from '@lib/data';
               </div>
               <a
                 href={`/projects/${project.slug}`}
-                class='text-sm font-medium text-primary hover:underline flex items-center gap-1'
+                class='text-sm font-medium text-primary hover:underline flex items-center gap-1 transition-colors duration-300 ease-in-out'
               >
                 More Info
                 <span class='icon-[mdi--arrow-right]' />

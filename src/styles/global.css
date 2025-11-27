@@ -3,21 +3,22 @@
 
 @theme {
   --color-background: var(--background);
+  --color-primary: #865ede;
   --color-secondary: var(--text-secondary);
   --color-border: var(--border);
 }
 
 @layer base {
   :root {
-    --background: #f3e8ff;
+    --background: #f6f3ff;
     --text-primary: #000;
     --text-secondary: #515151;
 
-    --border: #a855f733;
+    --border: #865ede33;
   }
 
   .dark {
-    --background: #0e0312;
+    --background: #060407;
     --text-primary: #fff;
     --text-secondary: #99a1af;
 
@@ -30,7 +31,7 @@
   body {
     background-color: var(--background);
     color: var(--text-primary);
-    @apply m-0 w-full h-full selection:bg-purple-500/20 selection:text-purple-500;
+    @apply m-0 w-full h-full selection:bg-primary/20 selection:text-primary;
   }
 
   .skill-container {
